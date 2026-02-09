@@ -1,0 +1,136 @@
+/* Curriculum Page Styles */
+.pageContainer {
+    padding: 2rem 0;
+    background: var(--color-bg-alt);
+    min-height: 80vh;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: var(--color-text-main);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--color-text-muted);
+}
+
+.classSelector {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.classBtn {
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--radius-full);
+    background: white;
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.classBtn.active {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+/* Subject Grid */
+.subjectGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.subjectCard {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.subjectCard:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.cardHeader {
+    background: var(--gradient-main);
+    padding: 1.5rem;
+    color: white;
+}
+
+.subjectName {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.cardBody {
+    padding: 1.5rem;
+}
+
+/* Chapters & Topics */
+.chapterList {
+    list-style: none;
+    padding: 0;
+}
+
+.chapterItem {
+    margin-bottom: 1.5rem;
+}
+
+.chapterTitle {
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.topicList {
+    list-style: none;
+    padding-left: 1rem;
+    border-left: 2px solid var(--color-border);
+}
+
+.topicItem {
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.25rem;
+    border-radius: var(--radius-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.1s;
+    text-decoration: none;
+    color: var(--color-text-main);
+    font-size: 0.9rem;
+}
+
+.topicItem:hover {
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+}
+
+.playIcon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid var(--color-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7rem;
+    color: var(--color-primary);
+}

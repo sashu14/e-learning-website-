@@ -1,0 +1,415 @@
+.tutorContainer {
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Full Screen Video Stage */
+.videoStage {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Updated Avatar Main Container - Full Screen */
+.avatarMain {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Removed border-radius and borders for cinematic look */
+}
+
+/* Fullscreen Video */
+.avatarVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures video fills screen like the reference */
+    transform: scale(1.02);
+    /* Slight zoom to prevent edge artifacts */
+}
+
+/* Placeholder Image - Full Screen */
+.placeholderContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.avatarLarge {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    /* Slightly brighter for impact */
+    transition: opacity 0.5s ease;
+}
+
+/* Overlay Elements - Floating on top of video */
+.videoOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    /* Above video */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.4) 0%,
+            transparent 20%,
+            transparent 80%,
+            rgba(0, 0, 0, 0.8) 100%);
+    /* Cinematic gradient vignetting */
+    pointer-events: none;
+    /* Let clicks pass through to video if needed */
+}
+
+/* Top Bar - Floating */
+.topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    pointer-events: auto;
+}
+
+.connectionStatus {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.signalDot {
+    width: 8px;
+    height: 8px;
+    background: #94a3b8;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.activeSignal {
+    background: #10b981;
+    box-shadow: 0 0 10px #10b981;
+}
+
+.windowControls {
+    display: flex;
+    gap: 1rem;
+}
+
+.iconBtn,
+.closeBtn {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.iconBtn:hover,
+.closeBtn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.closeBtn {
+    background: rgba(220, 38, 38, 0.2);
+    border-color: rgba(220, 38, 38, 0.3);
+}
+
+.closeBtn:hover {
+    background: rgba(220, 38, 38, 0.4);
+}
+
+/* Start Button - Premium & Centered */
+.startOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(0px);
+    z-index: 20;
+    pointer-events: auto;
+}
+
+.startBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.startBtn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Captions - Cinematic Subtitles */
+.captionsArea {
+    position: absolute;
+    top: 65%;
+    /* Positioned nicely above controls */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+}
+
+.captionText {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 1rem;
+    font-size: 1.35rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    max-width: 70%;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    animation: slideUpFade 0.4s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Control Bar - Bottom Floating */
+.controlBar {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 700px;
+    background: rgba(20, 20, 30, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 2rem;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 30;
+    pointer-events: auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.leftControls,
+.rightControls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.controlBtn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.controlBtn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.controlBtn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.activeMic {
+    background: white;
+    color: black;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.endCall {
+    background: rgba(239, 68, 68, 0.8);
+    border: none;
+}
+
+.endCall:hover {
+    background: #ef4444;
+}
+
+.chatInputContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    /* Slightly lighter input bg */
+    border-radius: var(--radius-full);
+    padding: 0.35rem 0.5rem 0.35rem 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s;
+}
+
+.chatInputContainer:focus-within {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.chatInputContainer input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+}
+
+.chatInputContainer input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.sendBtn {
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: white;
+    /* High contrast send button */
+    color: black;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sendBtn:hover:not(:disabled) {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.sendBtn:disabled {
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: default;
+}
+
+.loadingOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 50;
+}
+
+.debugText {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-family: monospace;
+    pointer-events: none;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .captionText {
+        font-size: 1.1rem;
+        max-width: 90%;
+    }
+
+    .controlBar {
+        width: 95%;
+        bottom: 1.5rem;
+        padding: 0.75rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        transform: translateX(-50%);
+        border-radius: 1.5rem;
+    }
+
+    .chatInputContainer {
+        width: 100%;
+        order: -1;
+        margin-bottom: 0.5rem;
+    }
+
+    .startBtn {
+        width: 100%;
+        justify-content: center;
+    }
+}

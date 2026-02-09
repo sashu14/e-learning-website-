@@ -1,0 +1,366 @@
+/* Hero Section */
+.heroSection {
+    background: var(--color-bg);
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.heroContainer {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.heroText {
+    flex: 1;
+    z-index: 2;
+}
+
+.tagline {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.headline {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    font-weight: 800;
+    color: var(--color-text-main);
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    color: var(--color-primary);
+}
+
+.subheadline {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+}
+
+.heroActions {
+    display: flex;
+    gap: 1rem;
+}
+
+.heroImage {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.studentImg {
+    width: 100%;
+    max-width: 500px;
+    border-radius: var(--radius-lg);
+    /* Or specific shape from image */
+    position: relative;
+    z-index: 1;
+}
+
+/* Floating Badges */
+.badgeFloat {
+    position: absolute;
+    background: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    z-index: 2;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.badgeIcon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.badge1 {
+    top: 20%;
+    left: -20px;
+}
+
+.badge1 .badgeIcon {
+    background: var(--color-primary);
+}
+
+.badge2 {
+    bottom: 20%;
+    right: -20px;
+}
+
+.badge2 .badgeIcon {
+    background: #ef4444;
+}
+
+.badge3 {
+    bottom: 10%;
+    left: 0;
+}
+
+.badge3 .badgeIcon {
+    background: var(--color-secondary);
+}
+
+
+/* Features Bar */
+.featuresSection {
+    padding: 3rem 0;
+    background: white;
+}
+
+.featuresGrid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.featureIcon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.featureText {
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+/* About Section */
+.aboutSection {
+    padding: 5rem 0;
+    background: var(--color-bg-alt);
+}
+
+.aboutGrid {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.aboutImageCol {
+    flex: 1;
+    position: relative;
+}
+
+.aboutContentCol {
+    flex: 1;
+}
+
+.collageImg {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+}
+
+.checkList {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.checkItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-muted);
+}
+
+.checkIcon {
+    color: var(--color-primary);
+    margin-top: 3px;
+}
+
+/* Courses Section */
+.coursesSection {
+    padding: 5rem 0;
+    background: white;
+    text-align: center;
+}
+
+.sectionHeader {
+    margin-bottom: 3rem;
+}
+
+.sectionTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.courseFilters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filterBtn {
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filterBtn.active,
+.filterBtn:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.courseGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    text-align: left;
+}
+
+.courseCard {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s;
+    border: 1px solid var(--color-border);
+}
+
+.courseCard:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.cardImage {
+    height: 180px;
+    background: #e0e0e0;
+    position: relative;
+}
+
+.cardImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardBadge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--color-secondary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.cardContent {
+    padding: 1.5rem;
+}
+
+.cardTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.cardMeta {
+    display: flex;
+    gap: 1rem;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.cardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.instructor {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.instructorAvatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ccc;
+}
+
+.price {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+
+    .heroContainer,
+    .aboutGrid {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .heroText,
+    .aboutContentCol,
+    .aboutImageCol {
+        width: 100%;
+    }
+
+    .heroActions {
+        justify-content: center;
+    }
+
+    .badgeFloat {
+        display: none;
+        /* Simplify on mobile */
+    }
+}
