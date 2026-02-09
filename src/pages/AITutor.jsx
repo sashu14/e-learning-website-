@@ -14,7 +14,7 @@ const AITutor = () => {
     const [debug, setDebug] = useState('');
 
     // Configuration
-    const TAVUS_API_KEY = "c27523e1dc5c4dd1abe8c35531eb7ef4"; // User provided key
+    const TAVUS_API_KEY = "your api key"; // User provided key
     const PERSONA_ID = "pc55154f229a";
 
     const updateStatus = (msg) => {
